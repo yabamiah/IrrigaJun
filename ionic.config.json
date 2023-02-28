@@ -1,0 +1,7 @@
+{
+  "name": "IrrigaJun",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
