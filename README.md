@@ -1,3 +1,6 @@
+![IrrigaJun](src/assets/icon/IrrigaJun-icon.png)
+
+---
 # IrrigaJun
 
 Este projeto é um aplicativo móvel desenvolvido com o framework Ionic que permite o controle de um sistema de irrigação automático através do protocolo de comunicação MQTT.
