@@ -1,4 +1,4 @@
-![IrrigaJun](src/assets/icon/IrrigaJun-icon.png)
+![IrrigaJun](src/assets/IrrigaJun.png)
 
 ---
 # IrrigaJun
