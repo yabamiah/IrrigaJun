@@ -1,0 +1,30 @@
+ion-content {
+    --background: #71B247;
+}
+  
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    --background-color: #71B247;
+}
+  
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+  
+    color: #191E1D;
+}
+  
+#container p {
+    font-size: 14px;
+    line-height: 23px;
+  
+    color: #28302F;
+  
+    margin: 0;
+}

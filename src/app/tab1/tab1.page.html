@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" id="main-content">
+  <div id="container">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <img src="../assets/icon/IrrigaJun-icon.png" alt="EletronJun-icon">
+    <p>Bem vindo ao controle do seu jardim!</p>
+    <br>
+
+    <h5>Último dia e <br>
+    horário acessado:
+    </h5>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Última irrigação</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <p> Data <ion-icon name="calendar-sharp"></ion-icon> : 28/02/2023</p>
+              <p> Horário <ion-icon name="time-sharp"></ion-icon> : 15:00 ás 16:04</p>
+              <p> Clima <ion-icon name="partly-sunny-sharp"></ion-icon> : Ensolarado</p>
+            </ion-card-content>
+
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>
