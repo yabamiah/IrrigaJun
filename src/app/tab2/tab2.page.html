@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
 
   <div id="container">
-  <strong>Agende a próxima irrigação</strong>
+  <strong>Adicionar agendamento</strong>
 
   <ion-item id="open-modal">
     <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
@@ -20,23 +20,23 @@
   <ion-modal trigger="open-modal">
     <ng-template>
       <ion-content>
-        <ion-datetime size="cover" [showDefaultButtons]="true"></ion-datetime>
+        <ion-datetime #datetime>
+          <ion-buttons slot="buttons">
+            <ion-button color="danger" fill="outline" (click)="fechar()">Cancelar</ion-button>
+            <ion-button color="primary" fill="outline" (click)="confirmar()">Confirmar</ion-button>
+          </ion-buttons>
+        </ion-datetime>
       </ion-content>
     </ng-template>
   </ion-modal>
 
-  <ion-item id="open-modal-time">
-    <ion-icon name="alarm-sharp" slot="start" color="primary"></ion-icon>
-    <ion-label>Horário </ion-label>
-    <ion-text slot="end">{{ horarioAtualFormatado }}</ion-text>
+  <ion-item>
+    <ion-icon name="create" slot="start" color="primary"></ion-icon>
+    <ion-label position="stacked">Nota</ion-label>
+    <ion-textarea [autoGrow]="true" [(ngModel)]="inputNota"></ion-textarea>
+    <ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarNota()">Salvar</ion-button>
   </ion-item>
+  
 
-  <ion-modal trigger="open-modal-time">
-    <ng-template>
-      <ion-content>
-        <ion-datetime presentation="time" size="cover" [showDefaultButtons]="true"></ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
   </div>
 </ion-content>
