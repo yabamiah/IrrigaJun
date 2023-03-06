@@ -14,13 +14,14 @@
   <ion-item id="open-modal">
     <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
     <ion-label>Data </ion-label>
-    <ion-text slot="end">{{ dataAtualFormatada }}</ion-text>
+    <ion-text slot="end">{{ dataFormatada }}</ion-text>
   </ion-item>
 
   <ion-modal trigger="open-modal">
     <ng-template>
       <ion-content>
-        <ion-datetime #datetime>
+        <ion-datetime presentation="date" #datetime [(ngModel)]="value" size="cover" 
+        (ionChange)="dataMudou(datetime.value)">
           <ion-buttons slot="buttons">
             <ion-button color="danger" fill="outline" (click)="fechar()">Cancelar</ion-button>
             <ion-button color="primary" fill="outline" (click)="confirmar()">Confirmar</ion-button>
@@ -30,13 +31,30 @@
     </ng-template>
   </ion-modal>
 
+  <div id="horarios">
+    <strong>Horários</strong>
+    <ion-item>
+      <ion-icon name="time" slot="start" color="primary"></ion-icon>
+      <ion-label position="stacked">Inicial</ion-label>
+      <ion-input type="time" [(ngModel)]="inputHorarioI"></ion-input>
+      <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarHorarioI()">Salvar</ion-button>-->
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="time" slot="start" color="primary"></ion-icon>
+      <ion-label position="stacked">Final</ion-label>
+      <ion-input type="time" [(ngModel)]="inputHorarioF"></ion-input>
+      <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarHorarioF()">Salvar</ion-button>-->
+    </ion-item>
+  </div>
+
   <ion-item>
     <ion-icon name="create" slot="start" color="primary"></ion-icon>
     <ion-label position="stacked">Nota</ion-label>
     <ion-textarea [autoGrow]="true" [(ngModel)]="inputNota"></ion-textarea>
-    <ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarNota()">Salvar</ion-button>
+    <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarNota()">Salvar</ion-button>-->
   </ion-item>
   
-
+  <ion-button expand="block" color="primary" (click)="salvarAgendamento()">Salvar</ion-button>
   </div>
 </ion-content>
