@@ -9,52 +9,38 @@
 <ion-content [fullscreen]="true">
 
   <div id="container">
-  <strong>Adicionar agendamento</strong>
+    
+  <div id="horarios">
+  
+    <div class="Titulo-agendamento"><strong>Adicionar agendamento</strong></div>
 
-  <ion-item id="open-modal">
+  <ion-item id="Data">
     <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
-    <ion-label>Data </ion-label>
-    <ion-text slot="end">{{ dataFormatada }}</ion-text>
+    <ion-label position="stacked">Data </ion-label>
+    <ion-input type="date" [(ngModel)]="inputData"></ion-input>
   </ion-item>
 
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-datetime presentation="date" #datetime [(ngModel)]="value" size="cover" 
-        (ionChange)="dataMudou(datetime.value)">
-          <ion-buttons slot="buttons">
-            <ion-button color="danger" fill="outline" (click)="fechar()">Cancelar</ion-button>
-            <ion-button color="primary" fill="outline" (click)="confirmar()">Confirmar</ion-button>
-          </ion-buttons>
-        </ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <div id="horarios">
-    <strong>Horários</strong>
-    <ion-item>
+    <strong id="Titulo-Horario">Horários</strong>
+    
+    <ion-item id="Hora-Inicio">
       <ion-icon name="time" slot="start" color="primary"></ion-icon>
       <ion-label position="stacked">Inicial</ion-label>
       <ion-input type="time" [(ngModel)]="inputHorarioI"></ion-input>
-      <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarHorarioI()">Salvar</ion-button>-->
     </ion-item>
 
-    <ion-item>
+    <ion-item id="Hora-Final">
       <ion-icon name="time" slot="start" color="primary"></ion-icon>
       <ion-label position="stacked">Final</ion-label>
       <ion-input type="time" [(ngModel)]="inputHorarioF"></ion-input>
-      <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarHorarioF()">Salvar</ion-button>-->
     </ion-item>
-  </div>
 
-  <ion-item>
+  <ion-item id="Notas">
     <ion-icon name="create" slot="start" color="primary"></ion-icon>
     <ion-label position="stacked">Nota</ion-label>
     <ion-textarea [autoGrow]="true" [(ngModel)]="inputNota"></ion-textarea>
-    <!--<ion-button slot="end" fill="outline" size="small" color="primary" (click)="salvarNota()">Salvar</ion-button>-->
   </ion-item>
+</div>
   
-  <ion-button expand="block" color="primary" (click)="salvarAgendamento()">Salvar</ion-button>
+  <ion-button expand="block" size="default" color="primary" (click)="salvarAgendamento()">Salvar</ion-button>
   </div>
 </ion-content>

@@ -4,8 +4,10 @@ ion-content {
 
 #container {
   text-align: center;
+  justify-content: center;
   margin: 0 auto;
   margin-top: 10px;
+  padding-left: 30px;
 
   --background-color: #71B247;
   --width: 325px;
@@ -20,47 +22,12 @@ ion-content {
   color: #191E1D;
 }
 
-#container p {
-  font-size: 14px;
-  line-height: 23px;
-
-  color: #28302F;
-
-  margin: 0;
-}
-
-ion-modal {
-  --background: rgba(44, 39, 45, 0.2);
-
-  &::part(content) {
-    backdrop-filter: blur(10px);
-  }
-
-  ion-content {
-    --background: transparent;
-
-    ion-datetime {
-      margin: 40px 20px 0px 13px;
-      width: 250px;
-      height: 330px;
-      border-radius: 8px;
-    }
-
-    ion-datetime .md {
-      margin: 40px 20px 0px 13px;
-      mode: md;
-      width: 250px;
-      height: 400px;
-      border-radius: 8px;
-    }
-  }
-}
-
-ion-item {
-  margin: 20px 20px 16px 13px;
+#horarios ion-item {
+  margin: 15px 20px 5px 10px;
+  padding: 0px 0px 5px 0px;
   border-radius: 16px;
-  text-align: center;
-  width: 250px;
+  width: 230px;
+  width: 230px;
 
   ion-text {
     padding: auto;
@@ -77,13 +44,7 @@ ion-item {
   }
 }
 
-#horarios strong{
-  position: relative;
-  text-align: left;
-}
-
-#horarios {
-  ion-item {
-    margin-top: 10px;
-  }
+ion-button {
+  justify-content: center;
+  margin: 50px 28px 0px 0px;
 }
