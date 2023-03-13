@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Profile
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+  
+    <div id="container">
+      
+    <div id="horarios">
+    
+      <div class="Titulo-agendamento"><strong>Adicionar agendamento</strong></div>
+  
+    <ion-item id="Data">
+      <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
+      <ion-label position="stacked">Data </ion-label>
+      <ion-input type="date" [(ngModel)]="inputData"></ion-input>
+    </ion-item>
+  
+      <strong id="Titulo-Horario">Horários</strong>
+      
+      <ion-item id="Hora-Inicio">
+        <ion-icon name="time" slot="start" color="primary"></ion-icon>
+        <ion-label position="stacked">Inicial</ion-label>
+        <ion-input type="time" [(ngModel)]="inputHorarioI"></ion-input>
+      </ion-item>
+  
+      <ion-item id="Hora-Final">
+        <ion-icon name="time" slot="start" color="primary"></ion-icon>
+        <ion-label position="stacked">Final</ion-label>
+        <ion-input type="time" [(ngModel)]="inputHorarioF"></ion-input>
+      </ion-item>
+  
+    <ion-item id="Notas">
+      <ion-icon name="create" slot="start" color="primary"></ion-icon>
+      <ion-label position="stacked">Nota</ion-label>
+      <ion-textarea [autoGrow]="true" [(ngModel)]="inputNota"></ion-textarea>
+    </ion-item>
+  </div>
+    
+    <ion-button expand="block" size="default" color="primary" (click)="salvarAgendamento()">Salvar</ion-button>
+    </div>
+  </ion-content>

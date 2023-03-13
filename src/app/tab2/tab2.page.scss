@@ -1,0 +1,50 @@
+ion-content {
+    --background: #71B247;
+  }
+  
+  #container {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-left: 30px;
+  
+    --background-color: #71B247;
+    --width: 325px;
+    --height: 434px;
+  }
+  
+  #container strong {
+  
+    font-size: 20px;
+    line-height: 26px;
+  
+    color: #191E1D;
+  }
+  
+  #horarios ion-item {
+    margin: 15px 20px 5px 10px;
+    padding: 0px 0px 5px 0px;
+    border-radius: 16px;
+    width: 230px;
+    width: 230px;
+  
+    ion-text {
+      padding: auto;
+      font-size: 13px;
+  
+      color: #28302F;
+    }
+  
+    ion-label {
+      font-size: 19px;
+      line-height: 20px;
+  
+      color: #28302F;
+    }
+  }
+  
+  ion-button {
+    justify-content: center;
+    margin: 50px 28px 0px 0px;
+  }
