@@ -5,59 +5,58 @@ const mqtt = require('mqtt');
   providedIn: 'root'
 })
 export class MqttService {
+  static sendMqttMessage(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   private clientId = 'mqttjs_' + Math.random().toString(8).substr(2, 4);
   private client = mqtt.connect('mqtt://test.mosquitto.org', {clientId: this.clientId});
-  private topic = 'test/IrrigaJun'
+  private topic : string
 
 
-  constructor(irrigadorID: number) { 
-    this.topic = this.topic + irrigadorID;  
+  constructor() {  
+    this.topic = 'test/IrrigaJun' + Math.random().toString(8).substr(2, 4);
   }
 
   public sendMqttMessage(message: string) {
-    this.client.on("connect",(connack: string) =>{   
-      console.log("cliente conectado", connack); 
+    this.client.on("connect",(connack: boolean) =>{   
+      console.log("Connected client", connack); 
   
       const payload = JSON.parse(message);
       this.client.publish(this.topic, JSON.stringify(payload), {qos: 1, retain: true}, (err: any, packet: any) => {
         if (err) {
           console.log("Error publishing message", err);
         } else {
-          console.log("Mensagem publicada", packet);
+          console.log("Posted message", packet);
         }
-    
-      setInterval(() => {
-        this.client.publish(this.topic, JSON.stringify(payload), {qos: 1, retain: true}, function(err: any, packet: any) {
-          if (err) {
-            console.log("Erro ao publicar mensagem", err);
-          } else {
-            console.log("Menssagem publicada", packet);
-          }
-        });
-      }
-      , 5000);
       });
     }) 
-    
-    this.client.on("error",function(error: string){
-      console.log("Erro:" + error);
-    });
-    
-    this.client.on("close", function() {
-      console.log("Cliente desconectado");
-    })
-    
-    this.client.on("reconnect", function() {
-      console.log("Tetando reconectar");
-    })
-    
-    this.client.on("offline", function() {
-      console.log("Cliente offline");
-    })
   }
 
   public receiveMqttMessage() {
     return "Hello World";
+  }
+
+  public connect() {
+    this.client.on("connect",(connack: boolean) =>{
+      console.log("Connected client", connack);
+      this.client.subscribe(this.topic, {qos: 1}, (err: any, granted: any) => {
+        if (err) {
+          console.log("Error subscribing to topic", err);
+        } else {
+          console.log("Subscribed to topic", granted);
+        }
+      });
+    });
+  }
+
+  public disconnect(err : Error) {
+    this.client.end(false, err, () => {
+      console.log("Disconnected client", err);
+    });
+  }
+
+  public getScheduleFromStore() {
+    // TODO: implementar um método para pegar o agendamento do banco de dados
   }
 }
